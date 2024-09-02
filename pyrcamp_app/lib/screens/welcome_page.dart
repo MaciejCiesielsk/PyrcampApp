@@ -8,7 +8,7 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome to pyrcamp app'),
+        title: const Text('Welcome to pyrcamp app'),
         actions: [
           IconButton(onPressed: () {
             FirebaseAuth.instance.signOut();
