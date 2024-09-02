@@ -74,7 +74,7 @@ class _AuthScreenState extends State<AuthScreen> {
               //TODO: make it responsive, delete fixed values
               Container(
                 child: Image.asset(
-                  '/home/maciej/workspace/pyrcamp_app/pyrcamp_app/lib/assets/images/pyrcamp_logo.png',
+                  'lib/assets/images/pyrcamp_logo.png',
                   width: 200,
                 ),
               ),
