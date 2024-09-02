@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "500891405739",
+    "project_id": "pyrcamp-app-demo",
+    "storage_bucket": "pyrcamp-app-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500891405739:android:1ac67032851569510616ee",
+        "android_client_info": {
+          "package_name": "com.pyrcamp_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRt_vjrW8u6xLI7WDbFtmwXuGY3bjmQhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
