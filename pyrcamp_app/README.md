@@ -14,3 +14,27 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+
+#
+UpperCamelCase:
+* screens
+* widgets
+* classes 
+
+
+lowerCamelCase
+* variables
+
+
+_lowerCamelCase
+* private variables
+
+
+xxx_xxx.png
+* assets
+* photos
+
+xxx_xxx.dart
+* files names
