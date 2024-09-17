@@ -4,6 +4,8 @@ import 'firebase_options.dart';
 import 'package:pyrcamp_app/screens/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pyrcamp_app/screens/welcome_page.dart';
+import 'package:pyrcamp_app/utils/theme/theme.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,12 +21,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pyrcamp App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-        ),
-        useMaterial3: true,
-      ),
+      themeMode: ThemeMode.system,
+      theme: PAppTheme.lightTheme,
+      darkTheme: PAppTheme.darkTheme,
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
