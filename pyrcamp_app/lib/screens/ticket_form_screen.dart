@@ -32,61 +32,65 @@ class _FormScreenState extends State<FormScreen> {
       body: Center(
         child: Column(
           children: [
-            SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Form(
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        decoration: const InputDecoration(labelText: 'Imie'),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      TextFormField(
-                        decoration:
-                            const InputDecoration(labelText: 'Nazwisko'),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(labelText: 'Ulica'),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      TextFormField(
-                        decoration:
-                            const InputDecoration(labelText: 'Kod pocztowy'),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(labelText: 'Miasto'),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(labelText: 'Państwo'),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      TextFormField(
-                        decoration: const InputDecoration(labelText: 'Płeć'),
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      TextFormField(
-                        decoration:
-                            const InputDecoration(labelText: 'Data urodzenia'),
-                      ),
-                    ],
+            
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Form(
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          decoration: const InputDecoration(labelText: 'Imie',border: OutlineInputBorder(),),
+                          
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        TextFormField(
+                          decoration:
+                              const InputDecoration(labelText: 'Nazwisko',border: OutlineInputBorder()),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(labelText: 'Ulica',border: OutlineInputBorder()),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        TextFormField(
+                          decoration:
+                              const InputDecoration(labelText: 'Kod pocztowy' ,border: OutlineInputBorder()),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(labelText: 'Miasto' ,border: OutlineInputBorder()),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(labelText: 'Państwo' ,border: OutlineInputBorder()),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(labelText: 'Płeć',border: OutlineInputBorder()),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        TextFormField(
+                          decoration:
+                              const InputDecoration(labelText: 'Data urodzenia', border: OutlineInputBorder()),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
