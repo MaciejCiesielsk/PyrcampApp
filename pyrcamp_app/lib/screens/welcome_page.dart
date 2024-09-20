@@ -15,13 +15,11 @@ class WelcomePage extends StatelessWidget {
           }, icon: Icon(Icons.exit_to_app))
         ],
       ),
-      backgroundColor: Color.fromARGB(255, 230, 39, 236),
-      body: const Center(
+      backgroundColor: const Color.fromARGB(255, 230, 39, 236),
+      body: Center(
         child: Text(
           'Welcome logged in user',
-          style: TextStyle(
-            color: Colors.white,
-          ),
+          style: Theme.of(context).textTheme.headlineMedium
         ),
       ),
     );
