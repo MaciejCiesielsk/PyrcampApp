@@ -112,7 +112,7 @@ class _FormScreenState extends State<FormScreen> {
                                 });
                               },
                             ),
-                            Text('Chcę fakturę'),
+                            const Text('Chcę fakturę'),
                           ],
                         ),
                         if (_invoiceWanted)
