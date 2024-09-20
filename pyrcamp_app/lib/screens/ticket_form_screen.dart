@@ -9,6 +9,7 @@ class FormScreen extends StatefulWidget {
 
 class _FormScreenState extends State<FormScreen> {
   final _formKey = GlobalKey<FormState>();
+  var _invoiceWanted = false;
   var _enteredName = '';
   var _enteredSurname = '';
   var _enteredStreet = '';
@@ -32,7 +33,6 @@ class _FormScreenState extends State<FormScreen> {
       body: Center(
         child: Column(
           children: [
-            
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
@@ -41,54 +41,106 @@ class _FormScreenState extends State<FormScreen> {
                     child: Column(
                       children: [
                         TextFormField(
-                          decoration: const InputDecoration(labelText: 'Imie',border: OutlineInputBorder(),),
-                          
+                          decoration: const InputDecoration(
+                            labelText: 'Imie',
+                            border: OutlineInputBorder(),
+                          ),
                         ),
                         const SizedBox(
                           height: 12,
                         ),
                         TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'Nazwisko',border: OutlineInputBorder()),
+                          decoration: const InputDecoration(
+                              labelText: 'Nazwisko',
+                              border: OutlineInputBorder()),
                         ),
                         const SizedBox(
                           height: 12,
                         ),
                         TextFormField(
-                          decoration: const InputDecoration(labelText: 'Ulica',border: OutlineInputBorder()),
+                          decoration: const InputDecoration(
+                              labelText: 'Ulica', border: OutlineInputBorder()),
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        //TODO: złączyc w jedna linie kod pocztowy i miasto
+                        TextFormField(
+                          decoration: const InputDecoration(
+                              labelText: 'Kod pocztowy',
+                              border: OutlineInputBorder()),
                         ),
                         const SizedBox(
                           height: 12,
                         ),
                         TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'Kod pocztowy' ,border: OutlineInputBorder()),
+                          decoration: const InputDecoration(
+                              labelText: 'Miasto',
+                              border: OutlineInputBorder()),
                         ),
                         const SizedBox(
                           height: 12,
                         ),
                         TextFormField(
-                          decoration: const InputDecoration(labelText: 'Miasto' ,border: OutlineInputBorder()),
+                          decoration: const InputDecoration(
+                              labelText: 'Państwo',
+                              border: OutlineInputBorder()),
                         ),
                         const SizedBox(
                           height: 12,
                         ),
                         TextFormField(
-                          decoration: const InputDecoration(labelText: 'Państwo' ,border: OutlineInputBorder()),
+                          decoration: const InputDecoration(
+                              labelText: 'Płeć', border: OutlineInputBorder()),
                         ),
                         const SizedBox(
                           height: 12,
                         ),
                         TextFormField(
-                          decoration: const InputDecoration(labelText: 'Płeć',border: OutlineInputBorder()),
+                          decoration: const InputDecoration(
+                              labelText: 'Data urodzenia',
+                              border: OutlineInputBorder()),
                         ),
-                        const SizedBox(
-                          height: 12,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Checkbox(
+                              value: _invoiceWanted,
+                              onChanged: (bool? newValue) {
+                                setState(() {
+                                  _invoiceWanted = newValue!;
+                                });
+                              },
+                            ),
+                            Text('Chcę fakturę'),
+                          ],
                         ),
-                        TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: 'Data urodzenia', border: OutlineInputBorder()),
-                        ),
+                        if (_invoiceWanted)
+                          Column(
+                            children: [
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                    labelText: 'Nazwa',
+                                    border: OutlineInputBorder()),
+                              ),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                    labelText: 'NIP',
+                                    border: OutlineInputBorder()),
+                              ),
+                              const SizedBox(
+                                height: 12,
+                              ),
+                              TextFormField(
+                                decoration: const InputDecoration(
+                                    labelText: 'E-mail kontaktowy',
+                                    border: OutlineInputBorder()),
+                              ),
+                            ],
+                          )
                       ],
                     ),
                   ),
