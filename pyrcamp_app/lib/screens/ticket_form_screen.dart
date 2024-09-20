@@ -8,6 +8,21 @@ class FormScreen extends StatefulWidget {
 }
 
 class _FormScreenState extends State<FormScreen> {
+  final _formKey = GlobalKey<FormState>();
+  var _enteredName = '';
+  var _enteredSurname = '';
+  var _enteredStreet = '';
+  var _enteredZipCode = '';
+  var _enteredCity = '';
+  var _enteredCountry = '';
+  var _enteredSex = '';
+  var _enteredBirthDate = '';
+
+  void _submit() async {
+    // to unlock onSaved option
+    _formKey.currentState!.save();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +45,46 @@ class _FormScreenState extends State<FormScreen> {
                         height: 12,
                       ),
                       TextFormField(
-                        decoration: const InputDecoration(labelText: 'Nazwisko'),
+                        decoration:
+                            const InputDecoration(labelText: 'Nazwisko'),
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      TextFormField(
+                        decoration: const InputDecoration(labelText: 'Ulica'),
                       ),
                       const SizedBox(
                         height: 12,
                       ),
                       TextFormField(
                         decoration:
-                            const InputDecoration(labelText: 'Haslo do banku'),
+                            const InputDecoration(labelText: 'Kod pocztowy'),
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      TextFormField(
+                        decoration: const InputDecoration(labelText: 'Miasto'),
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      TextFormField(
+                        decoration: const InputDecoration(labelText: 'Państwo'),
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      TextFormField(
+                        decoration: const InputDecoration(labelText: 'Płeć'),
+                      ),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      TextFormField(
+                        decoration:
+                            const InputDecoration(labelText: 'Data urodzenia'),
                       ),
                     ],
                   ),
