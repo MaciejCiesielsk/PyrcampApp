@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pyrcamp App',
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: PAppTheme.lightTheme,
       darkTheme: PAppTheme.darkTheme,
       home: StreamBuilder(

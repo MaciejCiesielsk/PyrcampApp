@@ -8,14 +8,14 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Welcome to pyrcamp app'),
+        title: Text('Welcome to pyrcamp app', style: Theme.of(context).textTheme.headlineLarge),
         actions: [
           IconButton(onPressed: () {
             FirebaseAuth.instance.signOut();
-          }, icon: Icon(Icons.exit_to_app))
+          }, icon: const Icon(Icons.exit_to_app))
         ],
       ),
-      backgroundColor: const Color.fromARGB(255, 230, 39, 236),
+      backgroundColor: Color.fromARGB(255, 230, 39, 236),
       body: Center(
         child: Text(
           'Welcome logged in user',
