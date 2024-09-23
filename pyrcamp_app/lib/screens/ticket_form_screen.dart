@@ -34,7 +34,7 @@ class _FormScreenState extends State<FormScreen> {
       await FirebaseFirestore.instance
             .collection('2k25')
             .doc(_enteredName)
-            .set({'email': _enteredName});
+            .set({'name': _enteredName, 'surname': _enteredSurname});
     }
     on FirebaseException catch (error){
 
@@ -81,6 +81,8 @@ class _FormScreenState extends State<FormScreen> {
                         const SizedBox(
                           height: 12,
                         ),
+
+
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Nazwisko',
@@ -98,6 +100,8 @@ class _FormScreenState extends State<FormScreen> {
                         const SizedBox(
                           height: 12,
                         ),
+
+
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Adres', border: OutlineInputBorder()),
@@ -114,6 +118,8 @@ class _FormScreenState extends State<FormScreen> {
                         const SizedBox(
                           height: 12,
                         ),
+
+
                         //TODO: merge fieldds ZIp code and city into a row
                         TextFormField(
                           decoration: const InputDecoration(
@@ -132,6 +138,8 @@ class _FormScreenState extends State<FormScreen> {
                         const SizedBox(
                           height: 12,
                         ),
+
+
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Miasto',
@@ -149,6 +157,8 @@ class _FormScreenState extends State<FormScreen> {
                         const SizedBox(
                           height: 12,
                         ),
+
+
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Państwo',
@@ -166,6 +176,8 @@ class _FormScreenState extends State<FormScreen> {
                         const SizedBox(
                           height: 12,
                         ),
+
+
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Płeć', border: OutlineInputBorder()),
@@ -182,6 +194,8 @@ class _FormScreenState extends State<FormScreen> {
                         const SizedBox(
                           height: 12,
                         ),
+
+
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Data urodzenia',
@@ -196,6 +210,9 @@ class _FormScreenState extends State<FormScreen> {
                             _enteredBirthDate = enteredValue!;
                           }
                         ),
+
+
+
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -210,6 +227,8 @@ class _FormScreenState extends State<FormScreen> {
                             const Text('Chcę fakturę'),
                           ],
                         ),
+
+
                         if (_invoiceWanted)
                           Column(
                             children: [
@@ -221,6 +240,8 @@ class _FormScreenState extends State<FormScreen> {
                               const SizedBox(
                                 height: 12,
                               ),
+
+
                               TextFormField(
                                 decoration: const InputDecoration(
                                     labelText: 'NIP',
@@ -229,6 +250,8 @@ class _FormScreenState extends State<FormScreen> {
                               const SizedBox(
                                 height: 12,
                               ),
+
+                              
                               TextFormField(
                                 decoration: const InputDecoration(
                                     labelText: 'E-mail kontaktowy',
