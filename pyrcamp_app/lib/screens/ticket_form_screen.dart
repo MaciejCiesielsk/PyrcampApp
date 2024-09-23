@@ -34,7 +34,9 @@ class _FormScreenState extends State<FormScreen> {
       await FirebaseFirestore.instance
           .collection('2k25')
           .doc(_enteredName)
-          .set({'name': _enteredName, 'surname': _enteredSurname});
+          .set({'name': _enteredName, 'surname': _enteredSurname, 'address': _enteredAddress, 'zipcode': _enteredZipCode, 'city': _enteredCity, 'country': _enteredCountry, 'sex': _enteredSex, 'birthdate': _enteredBirthDate});
+
+
     } on FirebaseException catch (error) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
