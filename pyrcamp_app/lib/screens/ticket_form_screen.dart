@@ -63,6 +63,8 @@ class _FormScreenState extends State<FormScreen> {
                     key: _formKey,
                     child: Column(
                       children: [
+
+// NAME
                         TextFormField(
                           decoration: const InputDecoration(
                             labelText: 'Imie',
@@ -82,7 +84,7 @@ class _FormScreenState extends State<FormScreen> {
                           height: 12,
                         ),
 
-
+// SURNAME
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Nazwisko',
@@ -101,7 +103,7 @@ class _FormScreenState extends State<FormScreen> {
                           height: 12,
                         ),
 
-
+// ADDRESS
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Adres', border: OutlineInputBorder()),
@@ -118,47 +120,60 @@ class _FormScreenState extends State<FormScreen> {
                         const SizedBox(
                           height: 12,
                         ),
+            
+                        Row(
+                          children: [
 
-
+// ZIPCODE
+                            Expanded(
+                              child: TextFormField(
+                                                        decoration: const InputDecoration(
+                                labelText: 'Kod pocztowy',
+                                border: OutlineInputBorder()),
+                                                        validator: (value){
+                              if (value == null || value.trim().isEmpty){
+                                return 'Please enter a valid zip code';
+                              }
+                              return null;
+                                                        },
+                                                        onSaved: (enteredValue){
+                              _enteredZipCode = enteredValue!;
+                                                        }
+                                                      ),
+                            ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+// CITY
+                        Expanded(
+                          child: TextFormField(
+                            decoration: const InputDecoration(
+                                labelText: 'Miasto',
+                                border: OutlineInputBorder()),
+                            validator: (value){
+                              if (value == null || value.trim().isEmpty){
+                                return 'Please enter a valid City';
+                              }
+                              return null;
+                            },
+                            onSaved: (enteredValue){
+                              _enteredCity = enteredValue!;
+                            }
+                            ,
+                        ),
+                        ),
+                        ],
+                        ),
                         //TODO: merge fieldds ZIp code and city into a row
-                        TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Kod pocztowy',
-                              border: OutlineInputBorder()),
-                          validator: (value){
-                            if (value == null || value.trim().isEmpty){
-                              return 'Please enter a valid zip code';
-                            }
-                            return null;
-                          },
-                          onSaved: (enteredValue){
-                            _enteredZipCode = enteredValue!;
-                          }
-                        ),
+                        
                         const SizedBox(
                           height: 12,
                         ),
 
-
-                        TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Miasto',
-                              border: OutlineInputBorder()),
-                          validator: (value){
-                            if (value == null || value.trim().isEmpty){
-                              return 'Please enter a valid City';
-                            }
-                            return null;
-                          },
-                          onSaved: (enteredValue){
-                            _enteredCity = enteredValue!;
-                          }
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-
-
+// COUNTRY
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Państwo',
@@ -177,7 +192,7 @@ class _FormScreenState extends State<FormScreen> {
                           height: 12,
                         ),
 
-
+// SEX
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Płeć', border: OutlineInputBorder()),
@@ -195,7 +210,7 @@ class _FormScreenState extends State<FormScreen> {
                           height: 12,
                         ),
 
-
+// BIRTH DATE
                         TextFormField(
                           decoration: const InputDecoration(
                               labelText: 'Data urodzenia',
@@ -233,7 +248,8 @@ class _FormScreenState extends State<FormScreen> {
                           Column(
                             children: [
                               TextFormField(
-                                decoration: const InputDecoration(
+                                decoration: const InputDecoration( 
+ // NAME OF THE COMPANY                                   
                                     labelText: 'Nazwa',
                                     border: OutlineInputBorder()),
                               ),
@@ -241,7 +257,7 @@ class _FormScreenState extends State<FormScreen> {
                                 height: 12,
                               ),
 
-
+// NIP
                               TextFormField(
                                 decoration: const InputDecoration(
                                     labelText: 'NIP',
@@ -251,7 +267,7 @@ class _FormScreenState extends State<FormScreen> {
                                 height: 12,
                               ),
 
-                              
+// CONTACT EMAIL                             
                               TextFormField(
                                 decoration: const InputDecoration(
                                     labelText: 'E-mail kontaktowy',
@@ -259,7 +275,7 @@ class _FormScreenState extends State<FormScreen> {
                               ),
                             ],
                           ),
-                          ElevatedButton(onPressed: _submit, child: const Text('zatwierdz forumalrz'),),
+                          ElevatedButton(onPressed: _submit, child: const Text('Prześlij formularz zgłoszeniowy'),),
                       ],
                     ),
                   ),
