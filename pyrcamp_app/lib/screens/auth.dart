@@ -31,8 +31,6 @@ class _AuthScreenState extends State<AuthScreen> {
     }
     // to unlock onSaved option
     _formKey.currentState!.save();
-    print(_enteredEmail);
-    print(_enteredPassword);
 
     try {
       if (_isLogin) {

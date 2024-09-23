@@ -26,25 +26,22 @@ class _FormScreenState extends State<FormScreen> {
     // to unlock onSaved option
     final isValid = _formKey.currentState!.validate();
 
-    if(!isValid){
+    if (!isValid) {
       return;
     }
     _formKey.currentState!.save();
-    try{
+    try {
       await FirebaseFirestore.instance
-            .collection('2k25')
-            .doc(_enteredName)
-            .set({'name': _enteredName, 'surname': _enteredSurname});
-    }
-    on FirebaseException catch (error){
-
+          .collection('2k25')
+          .doc(_enteredName)
+          .set({'name': _enteredName, 'surname': _enteredSurname});
+    } on FirebaseException catch (error) {
       ScaffoldMessenger.of(context).clearSnackBars();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(error.message ?? 'abc'),)
-      );
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(error.message ?? 'abc'),
+      ));
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -63,170 +60,160 @@ class _FormScreenState extends State<FormScreen> {
                     key: _formKey,
                     child: Column(
                       children: [
-
 // NAME
                         TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: 'Imie',
-                            border: OutlineInputBorder(),
-                          ),
-                          validator: (value){
-                            if (value == null || value.trim().isEmpty){
-                              return 'Please enter a valid name';
-                            }
-                            return null;
-                          },
-                          onSaved: (enteredValue){
-                            _enteredName = enteredValue!;
-                          }
-                        ),
+                            decoration: const InputDecoration(
+                              labelText: 'Imie',
+                              border: OutlineInputBorder(),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Please enter a valid name';
+                              }
+                              return null;
+                            },
+                            onSaved: (enteredValue) {
+                              _enteredName = enteredValue!;
+                            }),
                         const SizedBox(
                           height: 12,
                         ),
 
 // SURNAME
                         TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Nazwisko',
-                              border: OutlineInputBorder()),
-                          validator: (value){
-                            if (value == null || value.trim().isEmpty){
-                              return 'Please enter a valid surname';
-                            }
-                            return null;
-                          },
-                          onSaved: (enteredValue){
-                            _enteredSurname = enteredValue!;
-                          }
-                        ),
+                            decoration: const InputDecoration(
+                                labelText: 'Nazwisko',
+                                border: OutlineInputBorder()),
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Please enter a valid surname';
+                              }
+                              return null;
+                            },
+                            onSaved: (enteredValue) {
+                              _enteredSurname = enteredValue!;
+                            }),
                         const SizedBox(
                           height: 12,
                         ),
 
 // ADDRESS
                         TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Adres', border: OutlineInputBorder()),
-                          validator: (value){
-                            if (value == null || value.trim().isEmpty){
-                              return 'Please enter a valid address';
-                            }
-                            return null;
-                          },
-                          onSaved: (enteredValue){
-                            _enteredAddress = enteredValue!;
-                          }
-                        ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-            
-                        Row(
-                          children: [
-
-// ZIPCODE
-                            Expanded(
-                              child: TextFormField(
-                                                        decoration: const InputDecoration(
-                                labelText: 'Kod pocztowy',
-                                border: OutlineInputBorder()),
-                                                        validator: (value){
-                              if (value == null || value.trim().isEmpty){
-                                return 'Please enter a valid zip code';
-                              }
-                              return null;
-                                                        },
-                                                        onSaved: (enteredValue){
-                              _enteredZipCode = enteredValue!;
-                                                        }
-                                                      ),
-                            ),
-                        const SizedBox(
-                          height: 12,
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-// CITY
-                        Expanded(
-                          child: TextFormField(
                             decoration: const InputDecoration(
-                                labelText: 'Miasto',
+                                labelText: 'Adres',
                                 border: OutlineInputBorder()),
-                            validator: (value){
-                              if (value == null || value.trim().isEmpty){
-                                return 'Please enter a valid City';
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Please enter a valid address';
                               }
                               return null;
                             },
-                            onSaved: (enteredValue){
-                              _enteredCity = enteredValue!;
-                            }
-                            ,
+                            onSaved: (enteredValue) {
+                              _enteredAddress = enteredValue!;
+                            }),
+                        const SizedBox(
+                          height: 12,
                         ),
-                        ),
-                        ],
+
+                        Row(
+                          children: [
+// ZIPCODE
+                            Expanded(
+                              child: TextFormField(
+                                  decoration: const InputDecoration(
+                                      labelText: 'Kod pocztowy',
+                                      border: OutlineInputBorder()),
+                                  validator: (value) {
+                                    if (value == null || value.trim().isEmpty) {
+                                      return 'Please enter a valid zip code';
+                                    }
+                                    return null;
+                                  },
+                                  onSaved: (enteredValue) {
+                                    _enteredZipCode = enteredValue!;
+                                  }),
+                            ),
+                            const SizedBox(
+                              height: 12,
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+// CITY
+                            Expanded(
+                              child: TextFormField(
+                                decoration: const InputDecoration(
+                                    labelText: 'Miasto',
+                                    border: OutlineInputBorder()),
+                                validator: (value) {
+                                  if (value == null || value.trim().isEmpty) {
+                                    return 'Please enter a valid City';
+                                  }
+                                  return null;
+                                },
+                                onSaved: (enteredValue) {
+                                  _enteredCity = enteredValue!;
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                         //TODO: merge fieldds ZIp code and city into a row
-                        
+
                         const SizedBox(
                           height: 12,
                         ),
 
 // COUNTRY
                         TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Państwo',
-                              border: OutlineInputBorder()),
-                          validator: (value){
-                            if (value == null || value.trim().isEmpty){
-                              return 'Please enter a valid Country';
-                            }
-                            return null;
-                          },
-                          onSaved: (enteredValue){
-                            _enteredCountry = enteredValue!;
-                          }
-                        ),
+                            decoration: const InputDecoration(
+                                labelText: 'Państwo',
+                                border: OutlineInputBorder()),
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Please enter a valid Country';
+                              }
+                              return null;
+                            },
+                            onSaved: (enteredValue) {
+                              _enteredCountry = enteredValue!;
+                            }),
                         const SizedBox(
                           height: 12,
                         ),
 
 // SEX
                         TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Płeć', border: OutlineInputBorder()),
-                          validator: (value){
-                            if (value == null || value.trim().isEmpty){
-                              return 'Please enter a valid Sex';
-                            }
-                            return null;
-                          },
-                          onSaved: (enteredValue){
-                            _enteredSex = enteredValue!;
-                          }
-                        ),
+                            decoration: const InputDecoration(
+                                labelText: 'Płeć',
+                                border: OutlineInputBorder()),
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Please enter a valid Sex';
+                              }
+                              return null;
+                            },
+                            onSaved: (enteredValue) {
+                              _enteredSex = enteredValue!;
+                            }),
                         const SizedBox(
                           height: 12,
                         ),
 
 // BIRTH DATE
                         TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Data urodzenia',
-                              border: OutlineInputBorder()),
-                          validator: (value){
-                            if (value == null || value.trim().isEmpty){
-                              return 'Please enter a valid BirthDate';
-                            }
-                            return null;
-                          },
-                          onSaved: (enteredValue){
-                            _enteredBirthDate = enteredValue!;
-                          }
-                        ),
-
-
+                            decoration: const InputDecoration(
+                                labelText: 'Data urodzenia',
+                                border: OutlineInputBorder()),
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Please enter a valid BirthDate';
+                              }
+                              return null;
+                            },
+                            onSaved: (enteredValue) {
+                              _enteredBirthDate = enteredValue!;
+                            }),
 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -243,13 +230,12 @@ class _FormScreenState extends State<FormScreen> {
                           ],
                         ),
 
-
                         if (_invoiceWanted)
                           Column(
                             children: [
                               TextFormField(
-                                decoration: const InputDecoration( 
- // NAME OF THE COMPANY                                   
+                                decoration: const InputDecoration(
+                                    // NAME OF THE COMPANY
                                     labelText: 'Nazwa',
                                     border: OutlineInputBorder()),
                               ),
@@ -267,7 +253,7 @@ class _FormScreenState extends State<FormScreen> {
                                 height: 12,
                               ),
 
-// CONTACT EMAIL                             
+// CONTACT EMAIL
                               TextFormField(
                                 decoration: const InputDecoration(
                                     labelText: 'E-mail kontaktowy',
@@ -275,7 +261,10 @@ class _FormScreenState extends State<FormScreen> {
                               ),
                             ],
                           ),
-                          ElevatedButton(onPressed: _submit, child: const Text('Prześlij formularz zgłoszeniowy'),),
+                        ElevatedButton(
+                          onPressed: _submit,
+                          child: const Text('Prześlij formularz zgłoszeniowy'),
+                        ),
                       ],
                     ),
                   ),
