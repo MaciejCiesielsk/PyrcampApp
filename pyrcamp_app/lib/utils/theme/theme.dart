@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pyrcamp_app/utils/theme/custom_themes/text_theme.dart';
 import 'package:pyrcamp_app/utils/theme/custom_themes/elevated_button_theme.dart';
 
-import 'package:pyrcamp_app/utils/theme/custom_themes/elevated_button_theme.dart';
-import 'package:pyrcamp_app/utils/theme/custom_themes/text_theme.dart';
 
 
 class PAppTheme {
