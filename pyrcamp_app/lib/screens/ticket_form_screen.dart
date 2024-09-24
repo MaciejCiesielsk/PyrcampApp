@@ -19,7 +19,7 @@ class _FormScreenState extends State<FormScreen> {
   var _enteredAddress = '';
   var _enteredZipCode = '';
   var _enteredCity = '';
-  var _enteredCountry = '';
+  var _enteredCountry = 'Poland (PL) [+48]';
   var _enteredSex = '';
   var _enteredBirthDate = '';
 
