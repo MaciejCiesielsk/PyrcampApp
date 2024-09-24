@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pyrcamp_app/screens/ticket_form_screen.dart';
+import 'package:pyrcamp_app/features/ticket_form/ticket_form_screen.dart';
 
 
 class WelcomePage extends StatelessWidget {
