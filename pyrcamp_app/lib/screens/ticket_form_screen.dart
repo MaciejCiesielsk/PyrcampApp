@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -53,6 +54,10 @@ class _FormScreenState extends State<FormScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -180,19 +185,36 @@ class _FormScreenState extends State<FormScreen> {
                           ),
 
                           // COUNTRY
-                          TextFormField(
-                              decoration: const InputDecoration(
-                                  labelText: 'Państwo',
-                                  border: OutlineInputBorder()),
-                              validator: (value) {
-                                if (value == null || value.trim().isEmpty) {
-                                  return 'Please enter a valid Country';
-                                }
-                                return null;
-                              },
-                              onSaved: (enteredValue) {
-                                _enteredCountry = enteredValue!;
-                              }),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  _enteredCountry.isEmpty
+                                      ? 'Brak wybranego kraju'
+                                      : _enteredCountry,
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 12,
+                              ),
+                              Expanded(
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    showCountryPicker(
+                                      context: context,
+                                      onSelect: (Country country) {
+                                        setState(() {
+                                          _enteredCountry = country.displayName;
+                                        });
+                                      },
+                                    );
+                                  },
+                                  child: const Text('Wybierz państwo'),
+                                ),
+                              ),
+                            ],
+                          ),
                           const SizedBox(
                             height: 12,
                           ),
