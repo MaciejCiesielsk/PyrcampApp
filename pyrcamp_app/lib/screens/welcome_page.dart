@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pyrcamp_app/features/ticket_form/ticket_form_screen.dart';
 import 'package:pyrcamp_app/features/main_screen/menu_button.dart';
 import 'package:pyrcamp_app/data/features_list.dart';
-import 'package:pyrcamp_app/features/main_screen/menu_item.dart';
+import 'package:pyrcamp_app/screens/navigation_bar.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -11,6 +11,8 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //TODO: question: why name can't be NavigationBar() ?
+      drawer: NavBar(),
       appBar: AppBar(
         title: const Text('Welcome to pyrcamp app'),
         actions: [

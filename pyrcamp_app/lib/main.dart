@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pyrcamp App',
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: PAppTheme.lightTheme,
       darkTheme: PAppTheme.darkTheme,
