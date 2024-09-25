@@ -26,14 +26,14 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          if(snapshot.connectionState == ConnectionState.waiting) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return Text('Czekaj');
           }
 
-          if(snapshot.hasData) {
+          if (snapshot.hasData) {
             return const WelcomePage();
           }
-          
+
           return const AuthScreen();
         },
       ),
