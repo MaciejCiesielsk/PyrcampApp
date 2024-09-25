@@ -99,7 +99,7 @@ class _FormScreenState extends State<FormScreen> {
                             const SizedBox(
                               height: 12,
                             ),
-        
+
                             // SURNAME
                             TextFormField(
                                 decoration: const InputDecoration(
@@ -117,7 +117,7 @@ class _FormScreenState extends State<FormScreen> {
                             const SizedBox(
                               height: 12,
                             ),
-        
+
                             // ADDRESS
                             TextFormField(
                                 decoration: const InputDecoration(
@@ -135,7 +135,7 @@ class _FormScreenState extends State<FormScreen> {
                             const SizedBox(
                               height: 12,
                             ),
-        
+
                             Row(
                               children: [
                                 // ZIPCODE
@@ -168,7 +168,8 @@ class _FormScreenState extends State<FormScreen> {
                                         labelText: 'Miasto',
                                         border: OutlineInputBorder()),
                                     validator: (value) {
-                                      if (value == null || value.trim().isEmpty) {
+                                      if (value == null ||
+                                          value.trim().isEmpty) {
                                         return 'Please enter a valid City';
                                       }
                                       return null;
@@ -181,11 +182,11 @@ class _FormScreenState extends State<FormScreen> {
                               ],
                             ),
                             //TODO: merge fieldds ZIp code and city into a row
-        
+
                             const SizedBox(
                               height: 12,
                             ),
-        
+
                             // COUNTRY
                             Row(
                               children: [
@@ -207,7 +208,8 @@ class _FormScreenState extends State<FormScreen> {
                                         context: context,
                                         onSelect: (Country country) {
                                           setState(() {
-                                            _enteredCountry = country.displayName;
+                                            _enteredCountry =
+                                                country.displayName;
                                           });
                                         },
                                       );
@@ -220,14 +222,14 @@ class _FormScreenState extends State<FormScreen> {
                             const SizedBox(
                               height: 12,
                             ),
-        
+
                             // SEX
-                            
+
                             const DropdownSexMenu(),
                             const SizedBox(
                               height: 12,
                             ),
-        
+
                             // BIRTH DATE
                             TextFormField(
                                 decoration: const InputDecoration(
@@ -242,7 +244,7 @@ class _FormScreenState extends State<FormScreen> {
                                 onSaved: (enteredValue) {
                                   _enteredBirthDate = enteredValue!;
                                 }),
-        
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -257,7 +259,7 @@ class _FormScreenState extends State<FormScreen> {
                                 const Text('Chcę fakturę'),
                               ],
                             ),
-        
+
                             if (_invoiceWanted)
                               Column(
                                 children: [
@@ -270,7 +272,7 @@ class _FormScreenState extends State<FormScreen> {
                                   const SizedBox(
                                     height: 12,
                                   ),
-        
+
                                   // NIP
                                   TextFormField(
                                     decoration: const InputDecoration(
@@ -280,7 +282,7 @@ class _FormScreenState extends State<FormScreen> {
                                   const SizedBox(
                                     height: 12,
                                   ),
-        
+
                                   // CONTACT EMAIL
                                   TextFormField(
                                     decoration: const InputDecoration(
