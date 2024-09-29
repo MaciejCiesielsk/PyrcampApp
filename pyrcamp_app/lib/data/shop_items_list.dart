@@ -1,5 +1,19 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:pyrcamp_app/models/category.dart';
 import 'package:pyrcamp_app/models/shop_item.dart';
+
+/*
+_get_available_products_firebase() async {
+  // Pobranie dokumentów z kolekcji 'shop'
+  final QuerySnapshot availableProductsFirebase =
+      await FirebaseFirestore.instance.collection('shop').get();
+  return availableProductsFirebase;
+}
+*/
+
+//var availableCategoriesFirebase = _get_available_products_firebase();
 
 var availableCategories = [
   Category(title: 'Żywność'),
