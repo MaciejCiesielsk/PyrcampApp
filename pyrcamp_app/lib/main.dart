@@ -13,8 +13,12 @@ void main() async {
   runApp(const MyApp());
 }
 
+var username = '';
+var userEmail = '';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {

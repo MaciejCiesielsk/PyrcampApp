@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:pyrcamp_app/main.dart';
 
 //global variables
 //access to variable Firebase, which will be created in the background by FireBase SDK
@@ -36,6 +37,13 @@ class _AuthScreenState extends State<AuthScreen> {
         //logic to log users in
         final userCredentials = await _firebase.signInWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
+
+
+        final currentUser = FirebaseAuth.instance.currentUser!;
+        final userdata = await FirebaseFirestore.instance.collection('users').doc(currentUser.uid).get();
+        username = userdata['username'];
+        userEmail = userdata['email'];
+
       } else {
         // code to create new user
         // behind the scenes this method from Firebase SDK will send a HTTP request to Firebase

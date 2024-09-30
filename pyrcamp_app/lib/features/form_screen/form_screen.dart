@@ -63,10 +63,10 @@ class _FormScreenState extends State<FormScreen> {
       appBar: AppBar(
         title: const Text('Ticket Form Test'),
       ),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: Container(
-            color: Colors.white,
             margin: const EdgeInsets.all(20.0),
             child: Column(
               children: [
