@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:pyrcamp_app/data/shop_items_list.dart';
-//import 'package:pyrcamp_app/features/shop_screen/widgets/shop_tile.dart';
+import 'package:pyrcamp_app/features/shop_screen/widgets/shop_tile.dart';
+import 'package:pyrcamp_app/features/shop_screen/widgets/shop_item.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 
@@ -13,30 +14,31 @@ class ShopScreen extends StatefulWidget {
 }
 
 class _ShopScreenState extends State<ShopScreen> {
+  //variables
+  //ShopItem shopItem = ShopItem(name: '', price: '', imagePath: '');
+  var _productName = '';
+  var _productPrice = '';
+  var _productImagePath = '';
+  var _currentCategory = '';
+
   //methods
-  StreamBuilder _viewItems(currentCategory) {
+  StreamBuilder _viewItems() {
     return StreamBuilder(
-      stream: FirebaseFirestore.instance
-          .collection('shop2')
-          .doc(currentCategory) // id kategorii
-          .collection('data') //tutaj odwołujemy się do podkolekcji
-          .snapshots(),
-      builder: (ctx, dataSnapshot) {
-        if (dataSnapshot.connectionState == ConnectionState.waiting) {
+      stream: FirebaseFirestore.instance.collection('shop_food').snapshots(),
+      builder: (ctx, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
             child: CircularProgressIndicator(),
           );
         }
 
-        if (!dataSnapshot.hasData || dataSnapshot.data!.docs.isEmpty) {
+        if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
           return const Center(
             child: Text('No items found in this category'),
           );
         }
 
-        return Column(
-          children: [Text('dziala?')],
-        );
+        return Text('dzialaaaaa');
       },
     );
   }
@@ -44,7 +46,8 @@ class _ShopScreenState extends State<ShopScreen> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: FirebaseFirestore.instance.collection('shop2').snapshots(),
+      stream:
+          FirebaseFirestore.instance.collection('shop_categories').snapshots(),
       builder: (ctx, chatSnapshot) {
         //categories are loaded
         if (chatSnapshot.connectionState == ConnectionState.waiting) {
@@ -68,7 +71,8 @@ class _ShopScreenState extends State<ShopScreen> {
 
         //ta czesc musi byc po ifie sprawdzajacym, czy dane istnieja, wtedy mozemy dac !
         final loadedCategories = chatSnapshot.data!.docs;
-        print(loadedCategories);
+
+        //
 
         //normal version withot errors
         return Scaffold(
@@ -116,13 +120,13 @@ class _ShopScreenState extends State<ShopScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 4.0),
                         child: ElevatedButton(
                           child: Text(
-                            currentCategory['category'],
+                            currentCategory['category_name_pol'],
                           ),
                           onPressed: () {
-                            print('to tu');
-                            print(loadedCategories[index]);
+                            _currentCategory =
+                                'shop_${currentCategory['category_name_eng']}';
+
                             // Handle category click
-                            _viewItems(loadedCategories[index].id);
                           },
                         ),
                       );
@@ -147,7 +151,22 @@ class _ShopScreenState extends State<ShopScreen> {
 
               const SizedBox(height: 10),
 
-              //popular food
+              //products in category
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: ListView.builder(
+                    itemCount: _currentCategory.length,
+                    itemBuilder: (context, index) {
+                      //TODO w innym pliku docelowo
+                      if (_currentCategory == 'shop_food') {
+                        return _viewItems();
+                      }
+                    },
+                  ),
+                ),
+              )
+
               /*
               //do przeanalizowania jeszcze
               Expanded(
