@@ -66,7 +66,8 @@ class _FormScreenState extends State<FormScreen> {
       body: SafeArea(
         child: Center(
           child: Container(
-            margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+            color: Colors.white,
+            margin: const EdgeInsets.all(20.0),
             child: Column(
               children: [
                 Expanded(
