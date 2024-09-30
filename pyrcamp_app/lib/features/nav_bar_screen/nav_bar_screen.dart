@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pyrcamp_app/data/features_list.dart';
+import 'package:pyrcamp_app/features/main_screen/widgets/features_list.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});

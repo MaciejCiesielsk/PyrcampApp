@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pyrcamp_app/utils/theme/theme.dart';
 import 'firebase_options.dart';
-import 'package:pyrcamp_app/screens/auth.dart';
+import 'package:pyrcamp_app/features/login_screen/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pyrcamp_app/screens/welcome_page.dart';
+import 'package:pyrcamp_app/features/main_screen/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

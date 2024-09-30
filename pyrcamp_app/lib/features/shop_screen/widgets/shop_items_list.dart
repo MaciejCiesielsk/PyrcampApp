@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:pyrcamp_app/models/category.dart';
-import 'package:pyrcamp_app/models/shop_item.dart';
-
+import 'package:pyrcamp_app/features/shop_screen/category.dart';
+import 'package:pyrcamp_app/features/shop_screen/shop_item.dart';
 /*
 _get_available_products_firebase() async {
   // Pobranie dokumentów z kolekcji 'shop'

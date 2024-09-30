@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pyrcamp_app/features/main_screen/menu_item.dart';
+import 'package:pyrcamp_app/features/main_screen/widgets/menu_item.dart';
 import 'package:pyrcamp_app/features/shop_screen/shop_screen.dart';
-import 'package:pyrcamp_app/features/ticket_form/ticket_form_screen.dart';
+import 'package:pyrcamp_app/features/form_screen/form_screen.dart';
 
 const availableMenuItems = [
   MenuItem(
