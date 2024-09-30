@@ -228,20 +228,21 @@ class _FormScreenState extends State<FormScreen> {
                             DropdownButtonFormField(
                               items: const [
                                 DropdownMenuItem(
-                                  //visible text
-                                  child: Text('male'),
                                   //value passed to firebase
                                   value: 'male',
+                                  //visible text
+                                  child: Text('male'),
                                 ),
                                 DropdownMenuItem(
-                                  child: Text('female'),
                                   value: 'female',
+                                  child: Text('female'),
                                 ),
                                 DropdownMenuItem(
-                                  child: Text('helikopter bojowy'),
                                   value: 'helikopter bojowy',
+                                  child: Text('helikopter bojowy'),
                                 ),
                               ],
+                              //onChanged is required by function constructor
                               onChanged: (v) {},
                               onSaved: (enteredValue) {
                                 _enteredSex = enteredValue!;
