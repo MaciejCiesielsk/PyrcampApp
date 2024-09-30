@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pyrcamp_app/features/faq_screen/faq_question_screen.dart';
+import 'package:pyrcamp_app/features/faq_screen/faq_question_model.dart';
 
 class FaqScreen extends StatefulWidget {
   const FaqScreen({super.key});
@@ -19,25 +21,69 @@ class _FaqScreenState extends State<FaqScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Bilety', style: TextStyle(fontSize: 30),),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FaqQuestionScreen(question: Question('FAQ_bilety'),
+                    )));
+              },
+              child: const Text(
+                'Bilety',
+                style: TextStyle(fontSize: 30),
+              ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Nocleg', style: TextStyle(fontSize: 30),),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FaqQuestionScreen(question: Question('FAQ_nocleg'),
+                    )));
+              },
+              child: const Text(
+                'Nocleg',
+                style: TextStyle(fontSize: 30),
+              ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Infrastruktura', style: TextStyle(fontSize: 30),),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FaqQuestionScreen(question: Question('FAQ_infra')),
+                    ));
+              },
+              child: const Text(
+                'Infrastruktura',
+                style: TextStyle(fontSize: 30),
+              ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             ElevatedButton(
-              onPressed: () {},
-              child: const Text('Sklep online i namioty', style: TextStyle(fontSize: 30),),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FaqQuestionScreen(question: Question('FAQ_namiot')),
+                    ));
+              },
+              child: const Text(
+                'Sklep online i namioty',
+                style: TextStyle(fontSize: 30),
+              ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
           ],
         ),
       ),
