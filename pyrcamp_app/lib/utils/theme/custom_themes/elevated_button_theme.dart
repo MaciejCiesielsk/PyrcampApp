@@ -5,8 +5,8 @@ class PElevatedButtonTheme{
 
   static final lightElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom( // styleFrom is a simpler way to apply Button Style
-      foregroundColor: const Color.fromARGB(255, 255, 255, 255),
-      backgroundColor: const Color.fromARGB(255, 43, 37, 22),
+      foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(255, 197, 197, 63),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10)
       ),
