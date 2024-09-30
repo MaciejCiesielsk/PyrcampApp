@@ -15,7 +15,31 @@ class _FaqScreenState extends State<FaqScreen> {
         title: Text('FAQ'),
       ),
       body: Center(
-        child: Text('TEST'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Bilety', style: TextStyle(fontSize: 30),),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Nocleg', style: TextStyle(fontSize: 30),),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Infrastruktura', style: TextStyle(fontSize: 30),),
+            ),
+            const SizedBox(height: 20,),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Sklep online i namioty', style: TextStyle(fontSize: 30),),
+            ),
+            const SizedBox(height: 20,),
+          ],
+        ),
       ),
     );
   }
