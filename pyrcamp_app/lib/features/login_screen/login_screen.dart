@@ -38,12 +38,13 @@ class _AuthScreenState extends State<AuthScreen> {
         final userCredentials = await _firebase.signInWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
 
-
         final currentUser = FirebaseAuth.instance.currentUser!;
-        final userdata = await FirebaseFirestore.instance.collection('users').doc(currentUser.uid).get();
+        final userdata = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(currentUser.uid)
+            .get();
         username = userdata['username'];
         userEmail = userdata['email'];
-
       } else {
         // code to create new user
         // behind the scenes this method from Firebase SDK will send a HTTP request to Firebase
@@ -55,6 +56,9 @@ class _AuthScreenState extends State<AuthScreen> {
             .collection('users')
             .doc(userCredentials.user!.uid)
             .set({'username': _enteredUsername, 'email': _enteredEmail});
+
+        username = _enteredUsername;
+        userEmail = _enteredEmail;
       }
     } on FirebaseException catch (error) {
       // error handling, passing info which form field has not passed the validation
