@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-
-const List<String> list = <String>['-wybierz płeć-', 'Mężczyzna', 'Kobieta', 'Helikopter bojowy'];
+const List<String> list = <String>[
+  '-wybierz płeć-',
+  'Mężczyzna',
+  'Kobieta',
+  'Helikopter bojowy'
+];
 
 class DropdownSexMenu extends StatefulWidget {
   const DropdownSexMenu({super.key});

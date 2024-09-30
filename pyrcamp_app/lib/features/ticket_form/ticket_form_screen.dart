@@ -225,7 +225,30 @@ class _FormScreenState extends State<FormScreen> {
 
                             // SEX
 
-                            const DropdownSexMenu(),
+                            DropdownButtonFormField(
+                              items: const [
+                                DropdownMenuItem(
+                                  //visible text
+                                  child: Text('male'),
+                                  //value passed to firebase
+                                  value: 'male',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('female'),
+                                  value: 'female',
+                                ),
+                                DropdownMenuItem(
+                                  child: Text('helikopter bojowy'),
+                                  value: 'helikopter bojowy',
+                                ),
+                              ],
+                              onChanged: (v) {},
+                              onSaved: (enteredValue) {
+                                _enteredSex = enteredValue!;
+                              },
+                            ),
+
+                            //const DropdownSexMenu(),
                             const SizedBox(
                               height: 12,
                             ),
