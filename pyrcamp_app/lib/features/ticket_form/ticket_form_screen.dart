@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:pyrcamp_app/features/ticket_form/dropdown_sex_menu.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key});
@@ -181,7 +180,6 @@ class _FormScreenState extends State<FormScreen> {
                                 ),
                               ],
                             ),
-                            //TODO: merge fieldds ZIp code and city into a row
 
                             const SizedBox(
                               height: 12,
@@ -224,7 +222,6 @@ class _FormScreenState extends State<FormScreen> {
                             ),
 
                             // SEX
-
                             DropdownButtonFormField(
                               items: const [
                                 DropdownMenuItem(
