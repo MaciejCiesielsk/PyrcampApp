@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:pyrcamp_app/data/shop_items_list.dart';
-import 'package:pyrcamp_app/features/shop_screen/shop_tile.dart';
+import 'package:pyrcamp_app/features/shop_screen/widgets/shop_tile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 

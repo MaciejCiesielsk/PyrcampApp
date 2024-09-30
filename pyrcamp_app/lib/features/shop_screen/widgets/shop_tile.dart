@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pyrcamp_app/features/shop_screen/shop_item.dart';
+import 'package:pyrcamp_app/features/shop_screen/widgets/shop_item.dart';
 
 class ShopTile extends StatelessWidget {
   //constructor
