@@ -223,16 +223,20 @@ class _FormScreenState extends State<FormScreen> {
 
                             // SEX
                             DropdownButtonFormField(
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                label: Text('Płeć')
+                              ),
                               items: const [
                                 DropdownMenuItem(
                                   //value passed to firebase
-                                  value: 'male',
+                                  value: 'kobieta',
                                   //visible text
-                                  child: Text('male'),
+                                  child: Text('Kobieta'),
                                 ),
                                 DropdownMenuItem(
-                                  value: 'female',
-                                  child: Text('female'),
+                                  value: 'mezczyzna',
+                                  child: Text('Mężczyzna'),
                                 ),
                                 DropdownMenuItem(
                                   value: 'helikopter bojowy',

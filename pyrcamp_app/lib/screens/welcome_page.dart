@@ -23,7 +23,7 @@ class WelcomePage extends StatelessWidget {
               icon: const Icon(Icons.exit_to_app))
         ],
       ),
-      backgroundColor: const Color.fromARGB(255, 66, 39, 83),
+      //backgroundColor: const Color.fromARGB(255, 66, 39, 83),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

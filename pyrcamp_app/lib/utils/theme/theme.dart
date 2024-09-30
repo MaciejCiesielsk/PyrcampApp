@@ -14,8 +14,8 @@ class PAppTheme {
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     brightness: Brightness.light,
-    primaryColor: Colors.blue,
-    scaffoldBackgroundColor: Colors.white,
+    primaryColor: const Color.fromARGB(255, 66, 39, 83),
+    scaffoldBackgroundColor: const Color.fromARGB(255, 66, 39, 83),
     textTheme: PTextTheme.lightTextTheme, //imported from another file. textTheme has predefined text themes. More info in comments in text_theme.dart
     elevatedButtonTheme: PElevatedButtonTheme.lightElevatedButtonTheme,
   );

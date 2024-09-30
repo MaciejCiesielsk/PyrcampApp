@@ -44,7 +44,7 @@ class _ShopScreenState extends State<ShopScreen> {
 
         //normal version withot errors
         return Scaffold(
-          backgroundColor: const Color.fromARGB(255, 66, 39, 83),
+          //backgroundColor: const Color.fromARGB(255, 66, 39, 83),
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
