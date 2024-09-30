@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pyrcamp_app/data/features_list.dart';
-import 'package:pyrcamp_app/features/main_screen/menu_item.dart';
+import 'package:pyrcamp_app/features/main_screen/widgets/features_list.dart';
+import 'package:pyrcamp_app/features/main_screen/widgets/menu_item.dart';
 
 class MenuButton extends StatelessWidget {
   //constructor

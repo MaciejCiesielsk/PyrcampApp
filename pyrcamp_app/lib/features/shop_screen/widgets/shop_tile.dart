@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pyrcamp_app/models/shop_item.dart';
+import 'package:pyrcamp_app/features/shop_screen/shop_item.dart';
 
 class ShopTile extends StatelessWidget {
   //constructor
@@ -21,7 +21,7 @@ class ShopTile extends StatelessWidget {
         padding: const EdgeInsets.all(25),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             //image
             Image.asset(

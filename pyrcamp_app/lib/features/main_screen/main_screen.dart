@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pyrcamp_app/features/ticket_form/ticket_form_screen.dart';
-import 'package:pyrcamp_app/features/main_screen/menu_button.dart';
-import 'package:pyrcamp_app/data/features_list.dart';
-import 'package:pyrcamp_app/screens/navigation_bar.dart';
+import 'package:pyrcamp_app/features/form_screen/form_screen.dart';
+import 'package:pyrcamp_app/features/main_screen/widgets/menu_button.dart';
+import 'package:pyrcamp_app/features/main_screen/widgets/features_list.dart';
+import 'package:pyrcamp_app/features/nav_bar_screen/nav_bar_screen.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
