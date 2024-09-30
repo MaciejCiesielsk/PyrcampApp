@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pyrcamp_app/features/main_screen/widgets/menu_item.dart';
+import 'package:pyrcamp_app/features/map_screen/map_screen.dart';
 import 'package:pyrcamp_app/features/shop_screen/shop_screen.dart';
 import 'package:pyrcamp_app/features/form_screen/form_screen.dart';
+import 'package:pyrcamp_app/features/faq_screen/faq_screen.dart';
 
 const availableMenuItems = [
   MenuItem(
@@ -16,12 +18,12 @@ const availableMenuItems = [
       icon: Icon(Icons.shop_2)),
   MenuItem(
       id: 'mi3',
-      nextScreen: FormScreen(),
+      nextScreen: FaqScreen(),
       title: 'FAQ',
       icon: Icon(Icons.question_mark)),
   MenuItem(
       id: 'mi4',
-      nextScreen: FormScreen(),
+      nextScreen: MapScreen(),
       title: 'Mapa',
       icon: Icon(Icons.map)),
 ];
