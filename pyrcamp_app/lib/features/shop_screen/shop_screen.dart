@@ -13,10 +13,38 @@ class ShopScreen extends StatefulWidget {
 }
 
 class _ShopScreenState extends State<ShopScreen> {
+  //methods
+  StreamBuilder _viewItems(currentCategory) {
+    return StreamBuilder(
+      stream: FirebaseFirestore.instance
+          .collection('shop2')
+          .doc(currentCategory) // id kategorii
+          .collection('data') //tutaj odwołujemy się do podkolekcji
+          .snapshots(),
+      builder: (ctx, dataSnapshot) {
+        if (dataSnapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
+        if (!dataSnapshot.hasData || dataSnapshot.data!.docs.isEmpty) {
+          return const Center(
+            child: Text('No items found in this category'),
+          );
+        }
+
+        return Column(
+          children: [Text('dziala?')],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-      stream: FirebaseFirestore.instance.collection('shop').snapshots(),
+      stream: FirebaseFirestore.instance.collection('shop2').snapshots(),
       builder: (ctx, chatSnapshot) {
         //categories are loaded
         if (chatSnapshot.connectionState == ConnectionState.waiting) {
@@ -91,7 +119,10 @@ class _ShopScreenState extends State<ShopScreen> {
                             currentCategory['category'],
                           ),
                           onPressed: () {
+                            print('to tu');
+                            print(loadedCategories[index]);
                             // Handle category click
+                            _viewItems(loadedCategories[index].id);
                           },
                         ),
                       );
@@ -117,6 +148,7 @@ class _ShopScreenState extends State<ShopScreen> {
               const SizedBox(height: 10),
 
               //popular food
+              /*
               //do przeanalizowania jeszcze
               Expanded(
                 child: Padding(
@@ -182,6 +214,7 @@ class _ShopScreenState extends State<ShopScreen> {
                   ),
                 ),
               ),
+              */
             ],
           ),
         );
