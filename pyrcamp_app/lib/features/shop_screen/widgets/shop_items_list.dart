@@ -12,7 +12,7 @@ _get_available_products_firebase() async {
 }
 */
 
-//var availableCategoriesFirebase = _get_available_products_firebase();
+//var availableCategoriesFirebase = git_get_available_products_firebase();
 
 var availableCategories = [
   Category(title: 'Żywność'),
