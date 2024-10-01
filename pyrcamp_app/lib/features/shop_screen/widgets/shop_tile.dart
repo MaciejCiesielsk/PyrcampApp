@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pyrcamp_app/features/shop_screen/widgets/shop_item.dart';
+import 'package:pyrcamp_app/features/shop_screen/widgets/shop_product_detail_screen.dart';
 
 class ShopTile extends StatelessWidget {
   //constructor
@@ -10,6 +11,30 @@ class ShopTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ShopProductDetailScreen(),
+          ),
+        );
+      },
+      child: Card(
+        margin: EdgeInsets.all(16.0),
+        child: ListTile(
+          leading: Image.asset(shopItem.imagePath),
+          title: Text(shopItem.name),
+          subtitle: Text('${shopItem.price} zl'),
+          trailing: ElevatedButton(
+            onPressed: () {},
+            child: Text('Buy'),
+          ),
+        ),
+      ),
+    );
+
+    /*
     return GestureDetector(
       //onTap: ,
       child: Container(
@@ -41,6 +66,6 @@ class ShopTile extends StatelessWidget {
           ],
         ),
       ),
-    );
+    );*/
   }
 }
