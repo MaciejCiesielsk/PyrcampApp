@@ -55,6 +55,9 @@ class _AuthScreenState extends State<AuthScreen> {
             .collection('users')
             .doc(userCredentials.user!.uid)
             .set({'username': _enteredUsername, 'email': _enteredEmail});
+
+        username = _enteredUsername;
+        userEmail = _enteredEmail;
       }
     } on FirebaseException catch (error) {
       // error handling, passing info which form field has not passed the validation
