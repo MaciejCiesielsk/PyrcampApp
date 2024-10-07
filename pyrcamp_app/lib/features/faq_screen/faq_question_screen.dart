@@ -44,24 +44,26 @@ class FaqQuestionScreen extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: SizedBox(
-                      width: 200,
-                      height: 200,
-                      child: ListView.builder(
-                        itemCount: loadedQuestions.length,
-                        itemBuilder: (context, index) {
-                          final currentQuestion = loadedQuestions[index].data();
-
-                          //TODO w innym pliku docelowo
-                          return ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              currentQuestion['question'],
-                            ),
-                          );
-                        },
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: SizedBox(
+                        width: 700,
+                        height: 2000,
+                        child: ListView.builder(
+                          itemCount: loadedQuestions.length,
+                          itemBuilder: (context, index) {
+                            final currentQuestion = loadedQuestions[index].data();
+                    
+                            //TODO w innym pliku docelowo
+                            return ElevatedButton(
+                              onPressed: () {},
+                              child: Text(
+                                currentQuestion['question'],
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
