@@ -2,14 +2,14 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class MainPersonForm extends StatefulWidget {
-  const MainPersonForm({super.key});
+class AdditionalPersonForm extends StatefulWidget {
+  const AdditionalPersonForm({super.key});
 
   @override
-  State<MainPersonForm> createState() => _FormScreenState();
+  State<AdditionalPersonForm> createState() => _FormScreenState();
 }
 
-class _FormScreenState extends State<MainPersonForm> {
+class _FormScreenState extends State<AdditionalPersonForm> {
   final _formKey = GlobalKey<FormState>();
   var _invoiceWanted = false;
   var _enteredName = '';
@@ -20,6 +20,36 @@ class _FormScreenState extends State<MainPersonForm> {
   var _enteredCountry = 'Poland (PL) [+48]';
   var _enteredSex = '';
   var _enteredBirthDate = '';
+
+  void _submit() async {
+    // to unlock onSaved option
+    final isValid = _formKey.currentState!.validate();
+
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState!.save();
+    try {
+      await FirebaseFirestore.instance
+          .collection('2k25')
+          .doc(_enteredName)
+          .set({
+        'name': _enteredName,
+        'surname': _enteredSurname,
+        'address': _enteredAddress,
+        'zipcode': _enteredZipCode,
+        'city': _enteredCity,
+        'country': _enteredCountry,
+        'sex': _enteredSex,
+        'birthdate': _enteredBirthDate
+      });
+    } on FirebaseException catch (error) {
+      ScaffoldMessenger.of(context).clearSnackBars();
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(error.message ?? 'abc'),
+      ));
+    }
+  }
 
   @override
   void initState() {
@@ -249,38 +279,6 @@ class _FormScreenState extends State<MainPersonForm> {
                                 const Text('Chcę fakturę'),
                               ],
                             ),
-
-                            if (_invoiceWanted)
-                              Column(
-                                children: [
-                                  TextFormField(
-                                    decoration: const InputDecoration(
-                                        // NAME OF THE COMPANY
-                                        labelText: 'Nazwa',
-                                        border: OutlineInputBorder()),
-                                  ),
-                                  const SizedBox(
-                                    height: 12,
-                                  ),
-
-                                  // NIP
-                                  TextFormField(
-                                    decoration: const InputDecoration(
-                                        labelText: 'NIP',
-                                        border: OutlineInputBorder()),
-                                  ),
-                                  const SizedBox(
-                                    height: 12,
-                                  ),
-
-                                  // CONTACT EMAIL
-                                  TextFormField(
-                                    decoration: const InputDecoration(
-                                        labelText: 'E-mail kontaktowy',
-                                        border: OutlineInputBorder()),
-                                  ),
-                                ],
-                              ),
                           ],
                         ),
                       ),
