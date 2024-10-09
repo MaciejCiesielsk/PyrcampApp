@@ -38,7 +38,7 @@ class _AuthScreenState extends State<AuthScreen> {
         final userCredentials = await _firebase.signInWithEmailAndPassword(
             email: _enteredEmail, password: _enteredPassword);
 
-        final currentUser = FirebaseAuth.instance.currentUser!;
+        currentUser = FirebaseAuth.instance.currentUser!;
         final userdata = await FirebaseFirestore.instance
             .collection('users')
             .doc(currentUser.uid)

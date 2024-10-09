@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pyrcamp_app/features/form_screen/additional_person_form.dart';
 import 'package:pyrcamp_app/features/form_screen/main_person_form.dart';
 import 'package:pyrcamp_app/features/form_screen/person.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:pyrcamp_app/main.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key});
@@ -11,6 +13,7 @@ class FormScreen extends StatefulWidget {
 }
 
 class _FormScreenState extends State<FormScreen> {
+  final _formKey = GlobalKey<FormState>();
   var _extraPerson = false;
   var _additionalPerson = 0;
   late Person mainPerson = Person();
@@ -18,6 +21,37 @@ class _FormScreenState extends State<FormScreen> {
   late Person additonalPerson2;
   late Person additonalPerson3;
   late Person additonalPerson4;
+
+  void submit() async {
+    // to unlock onSaved option
+    final isValid = _formKey.currentState!.validate();
+
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState!.save();
+    try {
+      await FirebaseFirestore.instance
+          .collection('test_form_main')
+          .doc()
+          .set({
+        'name': mainPerson.name,
+        'surname': mainPerson.surname,
+        'address': mainPerson.address,
+        'zipcode': mainPerson.zipCode,
+        'city': mainPerson.city,
+        'country': mainPerson.country,
+        'gender': mainPerson.gender,
+        'birthdate': mainPerson.birthDate,
+        'buyer': currentUser.uid
+      });
+    } on FirebaseException catch (error) {
+      ScaffoldMessenger.of(context).clearSnackBars();
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(error.message ?? 'abc'),
+      ));
+    }
+  }
 
 
   @override
@@ -115,7 +149,7 @@ class _FormScreenState extends State<FormScreen> {
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {submit();},
                   child: const Text('Prześlij formularz zgłoszeniowy'),
                 ),
                 const SizedBox(

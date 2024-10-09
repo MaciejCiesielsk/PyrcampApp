@@ -2,6 +2,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:pyrcamp_app/features/form_screen/person.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:pyrcamp_app/main.dart';
 
 class MainPersonForm extends StatefulWidget {
   const MainPersonForm({super.key, required this.mainPerson});
@@ -15,38 +16,7 @@ class MainPersonForm extends StatefulWidget {
 class _FormScreenState extends State<MainPersonForm> {
   final _formKey = GlobalKey<FormState>();
   var _invoiceWanted = false;
-
-  /*
-  void _submit() async {
-    // to unlock onSaved option
-    final isValid = _formKey.currentState!.validate();
-
-    if (!isValid) {
-      return;
-    }
-    _formKey.currentState!.save();
-    try {
-      await FirebaseFirestore.instance
-          .collection('2k25')
-          .doc(_enteredName)
-          .set({
-        'name': _enteredName,
-        'surname': _enteredSurname,
-        'address': _enteredAddress,
-        'zipcode': _enteredZipCode,
-        'city': _enteredCity,
-        'country': _enteredCountry,
-        'sex': _enteredSex,
-        'birthdate': _enteredBirthDate
-      });
-    } on FirebaseException catch (error) {
-      ScaffoldMessenger.of(context).clearSnackBars();
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(error.message ?? 'abc'),
-      ));
-    }
-  }
-  */
+  
 
 
   @override
