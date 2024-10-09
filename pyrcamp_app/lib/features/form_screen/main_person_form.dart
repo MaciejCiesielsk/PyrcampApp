@@ -16,6 +16,39 @@ class _FormScreenState extends State<MainPersonForm> {
   final _formKey = GlobalKey<FormState>();
   var _invoiceWanted = false;
 
+  /*
+  void _submit() async {
+    // to unlock onSaved option
+    final isValid = _formKey.currentState!.validate();
+
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState!.save();
+    try {
+      await FirebaseFirestore.instance
+          .collection('2k25')
+          .doc(_enteredName)
+          .set({
+        'name': _enteredName,
+        'surname': _enteredSurname,
+        'address': _enteredAddress,
+        'zipcode': _enteredZipCode,
+        'city': _enteredCity,
+        'country': _enteredCountry,
+        'sex': _enteredSex,
+        'birthdate': _enteredBirthDate
+      });
+    } on FirebaseException catch (error) {
+      ScaffoldMessenger.of(context).clearSnackBars();
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(error.message ?? 'abc'),
+      ));
+    }
+  }
+  */
+
+
   @override
   void initState() {
     super.initState();
