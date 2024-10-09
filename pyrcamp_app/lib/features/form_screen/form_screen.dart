@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pyrcamp_app/features/form_screen/additional_person_form.dart';
 import 'package:pyrcamp_app/features/form_screen/main_person_form.dart';
 
-class FormScreen2 extends StatefulWidget {
-  const FormScreen2({super.key});
+class FormScreen extends StatefulWidget {
+  const FormScreen({super.key});
 
   @override
-  State<FormScreen2> createState() => _FormScreen2State();
+  State<FormScreen> createState() => _FormScreen2State();
 }
 
-class _FormScreen2State extends State<FormScreen2> {
+class _FormScreen2State extends State<FormScreen> {
   var _extraPerson = false;
 
   @override
@@ -24,7 +25,7 @@ class _FormScreen2State extends State<FormScreen2> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                child: FormScreen(),
+                child: MainPersonForm(),
                 height: 700,
               ),
               Row(
@@ -43,7 +44,7 @@ class _FormScreen2State extends State<FormScreen2> {
               ),
               if (_extraPerson)
                 Container(
-                  child: FormScreen(),
+                  child: AdditionalPersonForm(),
                   height: 700,
                 ),
             ],

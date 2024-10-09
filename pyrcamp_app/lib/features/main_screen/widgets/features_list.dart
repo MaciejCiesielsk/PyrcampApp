@@ -10,7 +10,7 @@ import 'package:pyrcamp_app/features/form_screen/form_screen.dart';
 const availableMenuItems = [
   MenuItem(
       id: 'mi1',
-      nextScreen: FormScreen2(),
+      nextScreen: FormScreen(),
       title: 'Formularz zgłoszeniowy',
       icon: Icon(Icons.edit)),
   MenuItem(
@@ -24,8 +24,5 @@ const availableMenuItems = [
       title: 'FAQ',
       icon: Icon(Icons.question_mark)),
   MenuItem(
-      id: 'mi4',
-      nextScreen: MapScreen(),
-      title: 'Mapa',
-      icon: Icon(Icons.map)),
+      id: 'mi4', nextScreen: MapScreen(), title: 'Mapa', icon: Icon(Icons.map)),
 ];
