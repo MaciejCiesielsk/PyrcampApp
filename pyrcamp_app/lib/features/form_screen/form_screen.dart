@@ -127,7 +127,7 @@ class _FormScreen2State extends State<FormScreen> {
                             ),
                             Text(
                               'Osoba dodatkowa ${i + 1}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 24,
                               ),
                             ),
