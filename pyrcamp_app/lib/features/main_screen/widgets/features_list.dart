@@ -24,5 +24,8 @@ const availableMenuItems = [
       title: 'FAQ',
       icon: Icon(Icons.question_mark)),
   MenuItem(
-      id: 'mi4', nextScreen: MapScreen(), title: 'Mapa', icon: Icon(Icons.map)),
+      id: 'mi4',
+      nextScreen: MapScreen(),
+      title: 'Mapa',
+      icon: Icon(Icons.map)),
 ];
