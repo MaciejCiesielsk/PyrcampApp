@@ -57,7 +57,13 @@ class FaqQuestionScreen extends StatelessWidget {
                     
                             //TODO w innym pliku docelowo
                             return ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () => showDialog<String>(
+                                context: context,
+                                builder: (BuildContext context) => AlertDialog(
+                                  title: Text(currentQuestion['question']),
+                                    content: Text(currentQuestion['answer']),
+                                ),
+                              ),
                               child: Text(
                                 currentQuestion['question'],
                               ),
