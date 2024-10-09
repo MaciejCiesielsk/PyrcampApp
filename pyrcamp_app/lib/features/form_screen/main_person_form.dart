@@ -1,9 +1,12 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:pyrcamp_app/features/form_screen/person.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MainPersonForm extends StatefulWidget {
-  const MainPersonForm({super.key});
+  const MainPersonForm({super.key, required this.mainPerson});
+  final Person mainPerson;
+
 
   @override
   State<MainPersonForm> createState() => _FormScreenState();
@@ -12,14 +15,6 @@ class MainPersonForm extends StatefulWidget {
 class _FormScreenState extends State<MainPersonForm> {
   final _formKey = GlobalKey<FormState>();
   var _invoiceWanted = false;
-  var _enteredName = '';
-  var _enteredSurname = '';
-  var _enteredAddress = '';
-  var _enteredZipCode = '';
-  var _enteredCity = '';
-  var _enteredCountry = 'Poland (PL) [+48]';
-  var _enteredSex = '';
-  var _enteredBirthDate = '';
 
   @override
   void initState() {
@@ -58,7 +53,7 @@ class _FormScreenState extends State<MainPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                _enteredName = enteredValue!;
+                widget.mainPerson.name = enteredValue!;
               }),
           const SizedBox(
             height: 12,
@@ -75,7 +70,7 @@ class _FormScreenState extends State<MainPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                _enteredSurname = enteredValue!;
+                widget.mainPerson.surname = enteredValue!;
               }),
           const SizedBox(
             height: 12,
@@ -92,7 +87,7 @@ class _FormScreenState extends State<MainPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                _enteredAddress = enteredValue!;
+                widget.mainPerson.address = enteredValue!;
               }),
           const SizedBox(
             height: 12,
@@ -113,7 +108,7 @@ class _FormScreenState extends State<MainPersonForm> {
                       return null;
                     },
                     onSaved: (enteredValue) {
-                      _enteredZipCode = enteredValue!;
+                      widget.mainPerson.zipCode = enteredValue!;
                     }),
               ),
               const SizedBox(
@@ -134,7 +129,7 @@ class _FormScreenState extends State<MainPersonForm> {
                     return null;
                   },
                   onSaved: (enteredValue) {
-                    _enteredCity = enteredValue!;
+                    widget.mainPerson.city = enteredValue!;
                   },
                 ),
               ),
@@ -150,9 +145,9 @@ class _FormScreenState extends State<MainPersonForm> {
             children: [
               Expanded(
                 child: Text(
-                  _enteredCountry.isEmpty
+                  widget.mainPerson.country.isEmpty
                       ? 'Brak wybranego kraju'
-                      : _enteredCountry,
+                      : widget.mainPerson.country,
                   style: const TextStyle(fontSize: 16),
                 ),
               ),
@@ -166,7 +161,7 @@ class _FormScreenState extends State<MainPersonForm> {
                       context: context,
                       onSelect: (Country country) {
                         setState(() {
-                          _enteredCountry = country.displayName;
+                          widget.mainPerson.country = country.displayName;
                         });
                       },
                     );
@@ -203,7 +198,7 @@ class _FormScreenState extends State<MainPersonForm> {
             //onChanged is required by function constructor
             onChanged: (v) {},
             onSaved: (enteredValue) {
-              _enteredSex = enteredValue!;
+              widget.mainPerson.gender = enteredValue!;
             },
           ),
 
@@ -223,7 +218,7 @@ class _FormScreenState extends State<MainPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                _enteredBirthDate = enteredValue!;
+                widget.mainPerson.birthDate = enteredValue!;
               }),
 
           Row(

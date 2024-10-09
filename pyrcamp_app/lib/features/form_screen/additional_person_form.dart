@@ -40,7 +40,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.additionalPerson.enteredName = enteredValue!;
+                widget.additionalPerson.name = enteredValue!;
               }),
           const SizedBox(
             height: 12,
@@ -57,7 +57,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.additionalPerson.enteredSurname = enteredValue!;
+                widget.additionalPerson.surname = enteredValue!;
               }),
           const SizedBox(
             height: 12,
@@ -74,7 +74,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.additionalPerson.enteredAddress = enteredValue!;
+                widget.additionalPerson.address = enteredValue!;
               }),
           const SizedBox(
             height: 12,
@@ -95,7 +95,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                       return null;
                     },
                     onSaved: (enteredValue) {
-                      widget.additionalPerson.enteredZipCode = enteredValue!;
+                      widget.additionalPerson.zipCode = enteredValue!;
                     }),
               ),
               const SizedBox(
@@ -116,7 +116,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                     return null;
                   },
                   onSaved: (enteredValue) {
-                    widget.additionalPerson.enteredCity = enteredValue!;
+                    widget.additionalPerson.city = enteredValue!;
                   },
                 ),
               ),
@@ -132,9 +132,9 @@ class _FormScreenState extends State<AdditionalPersonForm> {
             children: [
               Expanded(
                 child: Text(
-                  widget.additionalPerson.enteredCountry.isEmpty
+                  widget.additionalPerson.country.isEmpty
                       ? 'Brak wybranego kraju'
-                      : widget.additionalPerson.enteredCountry,
+                      : widget.additionalPerson.country,
                   style: const TextStyle(fontSize: 16),
                 ),
               ),
@@ -148,7 +148,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                       context: context,
                       onSelect: (Country country) {
                         setState(() {
-                          widget.additionalPerson.enteredCountry =
+                          widget.additionalPerson.country =
                               country.displayName;
                         });
                       },
@@ -186,7 +186,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
             //onChanged is required by function constructor
             onChanged: (v) {},
             onSaved: (enteredValue) {
-              widget.additionalPerson.enteredSex = enteredValue!;
+              widget.additionalPerson.gender = enteredValue!;
             },
           ),
 
@@ -206,7 +206,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.additionalPerson.enteredBirthDate = enteredValue!;
+                widget.additionalPerson.birthDate = enteredValue!;
               }),
         ],
       ),
