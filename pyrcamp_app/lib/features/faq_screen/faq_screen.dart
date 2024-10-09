@@ -25,7 +25,7 @@ class _FaqScreenState extends State<FaqScreen> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const FaqQuestionScreen(question: Question('FAQ_bilety'),
+                      builder: (context) => const FaqQuestionScreen(question: Question('FAQ_bilety'), // TODO: add variables instead of names of pages, to avoid changing every seperately
                     )));
               },
               child: const Text(
