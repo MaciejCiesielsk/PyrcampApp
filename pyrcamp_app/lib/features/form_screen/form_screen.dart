@@ -13,6 +13,7 @@ class FormScreen extends StatefulWidget {
 class _FormScreen2State extends State<FormScreen> {
   var _extraPerson = false;
   var _additionalPerson = 0;
+  late Person mainPerson = Person();
   late Person additonalPerson1;
   late Person additonalPerson2;
   late Person additonalPerson3;
@@ -64,7 +65,7 @@ class _FormScreen2State extends State<FormScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                MainPersonForm(),
+                MainPersonForm(mainPerson: mainPerson,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -127,7 +128,7 @@ class _FormScreen2State extends State<FormScreen> {
                             ),
                             Text(
                               'Osoba dodatkowa ${i + 1}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 24,
                               ),
                             ),

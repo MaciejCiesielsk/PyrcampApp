@@ -3,14 +3,13 @@
 class Person {
   //constructor
   Person();
-
   //variables
-  late String enteredName;
-  late String enteredSurname;
-  late String enteredAddress;
-  late String enteredZipCode;
-  late String enteredCity;
-  String enteredCountry = 'Poland (PL) [+48]';
-  late String enteredSex;
-  late String enteredBirthDate;
+  late String name;
+  late String surname;
+  late String address;
+  late String zipCode;
+  late String city;
+  String country = 'Poland (PL) [+48]';
+  late String gender;
+  late String birthDate;
 }
