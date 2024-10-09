@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:pyrcamp_app/features/form_screen/form_screen.dart';
 import 'package:pyrcamp_app/features/main_screen/widgets/menu_item.dart';
 import 'package:pyrcamp_app/features/map_screen/map_screen.dart';
 import 'package:pyrcamp_app/features/shop_screen/shop_screen.dart';
-import 'package:pyrcamp_app/features/form_screen/form_screen.dart';
+import 'package:pyrcamp_app/features/form_screen/main_person_form.dart';
 import 'package:pyrcamp_app/features/faq_screen/faq_screen.dart';
+import 'package:pyrcamp_app/features/form_screen/form_screen.dart';
 
 const availableMenuItems = [
   MenuItem(
       id: 'mi1',
-      nextScreen: FormScreen(),
+      nextScreen: FormScreen2(),
       title: 'Formularz zgłoszeniowy',
       icon: Icon(Icons.edit)),
   MenuItem(
