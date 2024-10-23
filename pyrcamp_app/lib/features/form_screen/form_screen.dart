@@ -20,10 +20,10 @@ class _FormScreenState extends State<FormScreen> {
   var _additionalPerson = 0;
   var _invoiceWanted = false;
   late Person mainPerson = Person();
-  late Person additonalPerson1;
-  late Person additonalPerson2;
-  late Person additonalPerson3;
-  late Person additonalPerson4;
+  late Person additonalPerson1 = Person();
+  late Person additonalPerson2 = Person();
+  late Person additonalPerson3 = Person();
+  late Person additonalPerson4 = Person();
 
   void submit() async {
     // to unlock onSaved option
@@ -366,7 +366,7 @@ class _FormScreenState extends State<FormScreen> {
                       );
                     },
                     onSaved: (enteredValue) {
-                      //_additionalPerson = enteredValue!;
+                      _additionalPerson = enteredValue!;
                     },
                   ),
                 if (_extraPerson)
@@ -388,9 +388,213 @@ class _FormScreenState extends State<FormScreen> {
                             const SizedBox(
                               height: 20,
                             ),
-                            //AdditionalPersonForm(
-                            //additionalPerson: additonalPerson1,
-                            //),
+                            Form(
+                              key: _formKey,
+                              child: Column(
+                                children: [
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  // NAME
+                                  TextFormField(
+                                      decoration: const InputDecoration(
+                                        labelText: 'Imie',
+                                        border: OutlineInputBorder(),
+                                      ),
+                                      validator: (value) {
+                                        if (value == null ||
+                                            value.trim().isEmpty) {
+                                          return 'Please enter a valid name';
+                                        }
+                                        return null;
+                                      },
+                                      onSaved: (enteredValue) {
+                                        additionalPerson.name = enteredValue!;
+                                      }),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+
+                                  // SURNAME
+                                  TextFormField(
+                                      decoration: const InputDecoration(
+                                          labelText: 'Nazwisko',
+                                          border: OutlineInputBorder()),
+                                      validator: (value) {
+                                        if (value == null ||
+                                            value.trim().isEmpty) {
+                                          return 'Please enter a valid surname';
+                                        }
+                                        return null;
+                                      },
+                                      onSaved: (enteredValue) {
+                                        additionalPerson.surname =
+                                            enteredValue!;
+                                      }),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+
+                                  // ADDRESS
+                                  TextFormField(
+                                      decoration: const InputDecoration(
+                                          labelText: 'Adres',
+                                          border: OutlineInputBorder()),
+                                      validator: (value) {
+                                        if (value == null ||
+                                            value.trim().isEmpty) {
+                                          return 'Please enter a valid address';
+                                        }
+                                        return null;
+                                      },
+                                      onSaved: (enteredValue) {
+                                        additionalPerson.address =
+                                            enteredValue!;
+                                      }),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+
+                                  Row(
+                                    children: [
+                                      // ZIPCODE
+                                      Expanded(
+                                        child: TextFormField(
+                                            decoration: const InputDecoration(
+                                                labelText: 'Kod pocztowy',
+                                                border: OutlineInputBorder()),
+                                            validator: (value) {
+                                              if (value == null ||
+                                                  value.trim().isEmpty) {
+                                                return 'Please enter a valid zip code';
+                                              }
+                                              return null;
+                                            },
+                                            onSaved: (enteredValue) {
+                                              additionalPerson.zipCode =
+                                                  enteredValue!;
+                                            }),
+                                      ),
+                                      const SizedBox(
+                                        height: 12,
+                                      ),
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      // CITY
+                                      Expanded(
+                                        child: TextFormField(
+                                          decoration: const InputDecoration(
+                                              labelText: 'Miasto',
+                                              border: OutlineInputBorder()),
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.trim().isEmpty) {
+                                              return 'Please enter a valid City';
+                                            }
+                                            return null;
+                                          },
+                                          onSaved: (enteredValue) {
+                                            additionalPerson.city =
+                                                enteredValue!;
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+
+                                  // COUNTRY
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          additionalPerson.country.isEmpty
+                                              ? 'Brak wybranego kraju'
+                                              : additionalPerson.country,
+                                          style: const TextStyle(fontSize: 16),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 12,
+                                      ),
+                                      Expanded(
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            showCountryPicker(
+                                              context: context,
+                                              onSelect: (Country country) {
+                                                setState(() {
+                                                  additionalPerson.country =
+                                                      country.displayName;
+                                                });
+                                              },
+                                            );
+                                          },
+                                          child: const Text('Wybierz państwo'),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+
+                                  // SEX
+                                  DropdownButtonFormField(
+                                    decoration: const InputDecoration(
+                                        border: OutlineInputBorder(),
+                                        label: Text('Płeć')),
+                                    items: const [
+                                      DropdownMenuItem(
+                                        //value passed to firebase
+                                        value: 'kobieta',
+                                        //visible text
+                                        child: Text('Kobieta'),
+                                      ),
+                                      DropdownMenuItem(
+                                        value: 'mezczyzna',
+                                        child: Text('Mężczyzna'),
+                                      ),
+                                      DropdownMenuItem(
+                                        value: 'helikopter bojowy',
+                                        child: Text('helikopter bojowy'),
+                                      ),
+                                    ],
+                                    //onChanged is required by function constructor
+                                    onChanged: (v) {},
+                                    onSaved: (enteredValue) {
+                                      additionalPerson.gender = enteredValue!;
+                                    },
+                                  ),
+
+                                  //const DropdownSexMenu(),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+
+                                  // BIRTH DATE
+                                  TextFormField(
+                                      decoration: const InputDecoration(
+                                          labelText: 'Data urodzenia',
+                                          border: OutlineInputBorder()),
+                                      validator: (value) {
+                                        if (value == null ||
+                                            value.trim().isEmpty) {
+                                          return 'Please enter a valid BirthDate';
+                                        }
+                                        return null;
+                                      },
+                                      onSaved: (enteredValue) {
+                                        additionalPerson.birthDate =
+                                            enteredValue!;
+                                      }),
+                                ],
+                              ),
+                            ),
                           ],
                         )
                     ],
