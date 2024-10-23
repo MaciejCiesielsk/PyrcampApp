@@ -45,6 +45,7 @@ class _AuthScreenState extends State<AuthScreen> {
             .get();
         username = userdata['username'];
         userEmail = userdata['email'];
+        currentUserId = userCredentials.user!.uid;
       } else {
         // code to create new user
         // behind the scenes this method from Firebase SDK will send a HTTP request to Firebase
@@ -54,7 +55,7 @@ class _AuthScreenState extends State<AuthScreen> {
         //tworzenie nowego dokumentu w Firestore
         await FirebaseFirestore.instance
             .collection('users')
-            .doc(userCredentials.user!.uid)
+            .doc(currentUserId)
             .set({'username': _enteredUsername, 'email': _enteredEmail});
 
         username = _enteredUsername;

@@ -16,6 +16,7 @@ void main() async {
 var username = '';
 var userEmail = '';
 var currentUser;
+var currentUserId;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

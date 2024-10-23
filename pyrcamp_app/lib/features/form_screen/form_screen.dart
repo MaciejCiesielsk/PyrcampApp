@@ -5,6 +5,7 @@ import 'package:pyrcamp_app/features/form_screen/person.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pyrcamp_app/main.dart';
 import 'package:country_picker/country_picker.dart';
+import 'package:pyrcamp_app/features/login_screen/login_screen.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key});
@@ -42,7 +43,7 @@ class _FormScreenState extends State<FormScreen> {
         'country': mainPerson.country,
         'gender': mainPerson.gender,
         'birthdate': mainPerson.birthDate,
-        //'buyer': currentUser.uid
+        'buyer': currentUserId,
       });
     } on FirebaseException catch (error) {
       ScaffoldMessenger.of(context).clearSnackBars();
