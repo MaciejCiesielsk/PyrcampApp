@@ -16,14 +16,15 @@ class FormScreen extends StatefulWidget {
 
 class _FormScreenState extends State<FormScreen> {
   final _formKey = GlobalKey<FormState>();
+  final _formKey2 = GlobalKey<FormState>();
   var _extraPerson = false;
   var _additionalPerson = 0;
   var _invoiceWanted = false;
   late Person mainPerson = Person();
-  late Person additonalPerson1 = Person();
-  late Person additonalPerson2 = Person();
-  late Person additonalPerson3 = Person();
-  late Person additonalPerson4 = Person();
+  late Person additionalPerson = Person();
+  late Person additionalPerson2 = Person();
+  late Person additionalPerson3 = Person();
+  late Person additionalPerson4 = Person();
 
   void submit() async {
     // to unlock onSaved option
@@ -327,7 +328,7 @@ class _FormScreenState extends State<FormScreen> {
                       onChanged: (bool? newValue) {
                         setState(() {
                           _extraPerson = newValue!;
-                          additonalPerson1 = Person();
+                          //additonalPerson1 = Person();
                           _additionalPerson = 0;
                         });
                       },
@@ -389,7 +390,7 @@ class _FormScreenState extends State<FormScreen> {
                               height: 20,
                             ),
                             Form(
-                              key: _formKey,
+                              key: _formKey2,
                               child: Column(
                                 children: [
                                   const SizedBox(
