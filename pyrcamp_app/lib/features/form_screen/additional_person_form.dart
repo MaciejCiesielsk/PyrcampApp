@@ -1,7 +1,6 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:pyrcamp_app/features/form_screen/person.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AdditionalPersonForm extends StatefulWidget {
   const AdditionalPersonForm({super.key, required this.additionalPerson});
