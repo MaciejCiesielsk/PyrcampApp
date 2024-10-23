@@ -31,10 +31,7 @@ class _FormScreenState extends State<FormScreen> {
     }
     _formKey.currentState!.save();
     try {
-      await FirebaseFirestore.instance
-          .collection('test_form_main')
-          .doc()
-          .set({
+      await FirebaseFirestore.instance.collection('test_form_main').doc().set({
         'name': mainPerson.name,
         'surname': mainPerson.surname,
         'address': mainPerson.address,
@@ -52,8 +49,7 @@ class _FormScreenState extends State<FormScreen> {
       ));
     }
   }
-
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +64,9 @@ class _FormScreenState extends State<FormScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                MainPersonForm(mainPerson: mainPerson,),
+                MainPersonForm(
+                  mainPerson: mainPerson,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -149,7 +147,9 @@ class _FormScreenState extends State<FormScreen> {
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: () {submit();},
+                  onPressed: () {
+                    submit();
+                  },
                   child: const Text('Prześlij formularz zgłoszeniowy'),
                 ),
                 const SizedBox(

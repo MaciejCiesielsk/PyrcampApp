@@ -8,7 +8,6 @@ class MainPersonForm extends StatefulWidget {
   const MainPersonForm({super.key, required this.mainPerson});
   final Person mainPerson;
 
-
   @override
   State<MainPersonForm> createState() => _FormScreenState();
 }
@@ -16,8 +15,6 @@ class MainPersonForm extends StatefulWidget {
 class _FormScreenState extends State<MainPersonForm> {
   final _formKey = GlobalKey<FormState>();
   var _invoiceWanted = false;
-  
-
 
   @override
   void initState() {
@@ -56,7 +53,7 @@ class _FormScreenState extends State<MainPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.mainPerson.name = enteredValue!;
+                widget.mainPerson.name = enteredValue;
               }),
           const SizedBox(
             height: 12,
@@ -73,7 +70,7 @@ class _FormScreenState extends State<MainPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.mainPerson.surname = enteredValue!;
+                widget.mainPerson.surname = enteredValue;
               }),
           const SizedBox(
             height: 12,
@@ -90,7 +87,7 @@ class _FormScreenState extends State<MainPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.mainPerson.address = enteredValue!;
+                widget.mainPerson.address = enteredValue;
               }),
           const SizedBox(
             height: 12,
@@ -111,7 +108,7 @@ class _FormScreenState extends State<MainPersonForm> {
                       return null;
                     },
                     onSaved: (enteredValue) {
-                      widget.mainPerson.zipCode = enteredValue!;
+                      widget.mainPerson.zipCode = enteredValue;
                     }),
               ),
               const SizedBox(
@@ -132,7 +129,7 @@ class _FormScreenState extends State<MainPersonForm> {
                     return null;
                   },
                   onSaved: (enteredValue) {
-                    widget.mainPerson.city = enteredValue!;
+                    widget.mainPerson.city = enteredValue;
                   },
                 ),
               ),
@@ -201,7 +198,7 @@ class _FormScreenState extends State<MainPersonForm> {
             //onChanged is required by function constructor
             onChanged: (v) {},
             onSaved: (enteredValue) {
-              widget.mainPerson.gender = enteredValue!;
+              widget.mainPerson.gender = enteredValue;
             },
           ),
 
@@ -221,7 +218,7 @@ class _FormScreenState extends State<MainPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.mainPerson.birthDate = enteredValue!;
+                widget.mainPerson.birthDate = enteredValue;
               }),
 
           Row(

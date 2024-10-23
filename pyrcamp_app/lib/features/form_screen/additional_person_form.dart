@@ -40,7 +40,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.additionalPerson.name = enteredValue!;
+                widget.additionalPerson.name = enteredValue;
               }),
           const SizedBox(
             height: 12,
@@ -57,7 +57,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.additionalPerson.surname = enteredValue!;
+                widget.additionalPerson.surname = enteredValue;
               }),
           const SizedBox(
             height: 12,
@@ -74,7 +74,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.additionalPerson.address = enteredValue!;
+                widget.additionalPerson.address = enteredValue;
               }),
           const SizedBox(
             height: 12,
@@ -95,7 +95,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                       return null;
                     },
                     onSaved: (enteredValue) {
-                      widget.additionalPerson.zipCode = enteredValue!;
+                      widget.additionalPerson.zipCode = enteredValue;
                     }),
               ),
               const SizedBox(
@@ -116,7 +116,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                     return null;
                   },
                   onSaved: (enteredValue) {
-                    widget.additionalPerson.city = enteredValue!;
+                    widget.additionalPerson.city = enteredValue;
                   },
                 ),
               ),
@@ -148,8 +148,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                       context: context,
                       onSelect: (Country country) {
                         setState(() {
-                          widget.additionalPerson.country =
-                              country.displayName;
+                          widget.additionalPerson.country = country.displayName;
                         });
                       },
                     );
@@ -186,7 +185,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
             //onChanged is required by function constructor
             onChanged: (v) {},
             onSaved: (enteredValue) {
-              widget.additionalPerson.gender = enteredValue!;
+              widget.additionalPerson.gender = enteredValue;
             },
           ),
 
@@ -206,7 +205,7 @@ class _FormScreenState extends State<AdditionalPersonForm> {
                 return null;
               },
               onSaved: (enteredValue) {
-                widget.additionalPerson.birthDate = enteredValue!;
+                widget.additionalPerson.birthDate = enteredValue;
               }),
         ],
       ),
