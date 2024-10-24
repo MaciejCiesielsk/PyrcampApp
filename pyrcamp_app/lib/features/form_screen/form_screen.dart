@@ -15,6 +15,10 @@ class FormScreen extends StatefulWidget {
 }
 
 class _FormScreenState extends State<FormScreen> {
+  List<Person> additionalPeopleList = [];
+  List<GlobalKey<FormState>> additionalPeopleFormKeys = [];
+  List<bool> validationList = [];
+
   final _formKey = GlobalKey<FormState>();
   final _formKey2 = GlobalKey<FormState>();
   var _extraPerson = false;
@@ -22,18 +26,28 @@ class _FormScreenState extends State<FormScreen> {
   var _invoiceWanted = false;
   late Person mainPerson = Person();
   late Person additionalPerson = Person();
-  late Person additionalPerson2 = Person();
-  late Person additionalPerson3 = Person();
-  late Person additionalPerson4 = Person();
+  //late Person additionalPerson2 = Person();
+  //late Person additionalPerson3 = Person();
+  //late Person additionalPerson4 = Person();
 
   void submit() async {
     // to unlock onSaved option
     final isValid = _formKey.currentState!.validate();
 
+    bool isValidAdditional;
+
+    for (int i = 0; i < additionalPeopleList.length; i++) {
+      isValidAdditional = _formKey.currentState!.validate();
+      validationList.add(isValidAdditional);
+    }
+
+    //TODO - dodac validacje tez innych kluczy
     if (!isValid) {
       return;
     }
     _formKey.currentState!.save();
+    //_formKey2.currentState!.save();
+
     try {
       await FirebaseFirestore.instance.collection('test_form_main').doc().set({
         'name': mainPerson.name,
@@ -46,6 +60,24 @@ class _FormScreenState extends State<FormScreen> {
         'birthdate': mainPerson.birthDate,
         'buyer': currentUserId,
       });
+
+      for (var i = 0; i < additionalPeopleList.length; i++) {
+        additionalPeopleFormKeys[i].currentState!.save();
+        await FirebaseFirestore.instance
+            .collection('test_form_main')
+            .doc()
+            .set({
+          'name': additionalPeopleList[i].name,
+          'surname': additionalPeopleList[i].surname,
+          'address': additionalPeopleList[i].address,
+          'zipcode': additionalPeopleList[i].zipCode,
+          'city': additionalPeopleList[i].city,
+          'country': additionalPeopleList[i].country,
+          'gender': additionalPeopleList[i].gender,
+          'birthdate': additionalPeopleList[i].birthDate,
+          'buyer': currentUserId,
+        });
+      }
     } on FirebaseException catch (error) {
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -53,6 +85,8 @@ class _FormScreenState extends State<FormScreen> {
       ));
     }
   }
+
+  void createAdditionalPerson() {}
 
   @override
   Widget build(BuildContext context) {
@@ -363,6 +397,12 @@ class _FormScreenState extends State<FormScreen> {
                       setState(
                         () {
                           _additionalPerson = enteredNumber!;
+                          additionalPeopleList = [];
+                          for (int i = 0; i < _additionalPerson; i++) {
+                            additionalPeopleList.add(Person());
+                            final tempFormKey = GlobalKey<FormState>();
+                            additionalPeopleFormKeys.add(tempFormKey);
+                          }
                         },
                       );
                     },
@@ -390,7 +430,7 @@ class _FormScreenState extends State<FormScreen> {
                               height: 20,
                             ),
                             Form(
-                              key: _formKey2,
+                              key: additionalPeopleFormKeys[i],
                               child: Column(
                                 children: [
                                   const SizedBox(
@@ -410,7 +450,8 @@ class _FormScreenState extends State<FormScreen> {
                                         return null;
                                       },
                                       onSaved: (enteredValue) {
-                                        additionalPerson.name = enteredValue!;
+                                        additionalPeopleList[i].name =
+                                            enteredValue!;
                                       }),
                                   const SizedBox(
                                     height: 12,
@@ -429,7 +470,7 @@ class _FormScreenState extends State<FormScreen> {
                                         return null;
                                       },
                                       onSaved: (enteredValue) {
-                                        additionalPerson.surname =
+                                        additionalPeopleList[i].surname =
                                             enteredValue!;
                                       }),
                                   const SizedBox(
@@ -449,7 +490,7 @@ class _FormScreenState extends State<FormScreen> {
                                         return null;
                                       },
                                       onSaved: (enteredValue) {
-                                        additionalPerson.address =
+                                        additionalPeopleList[i].address =
                                             enteredValue!;
                                       }),
                                   const SizedBox(
@@ -472,7 +513,7 @@ class _FormScreenState extends State<FormScreen> {
                                               return null;
                                             },
                                             onSaved: (enteredValue) {
-                                              additionalPerson.zipCode =
+                                              additionalPeopleList[i].zipCode =
                                                   enteredValue!;
                                             }),
                                       ),
@@ -496,7 +537,7 @@ class _FormScreenState extends State<FormScreen> {
                                             return null;
                                           },
                                           onSaved: (enteredValue) {
-                                            additionalPerson.city =
+                                            additionalPeopleList[i].city =
                                                 enteredValue!;
                                           },
                                         ),
@@ -513,7 +554,9 @@ class _FormScreenState extends State<FormScreen> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          additionalPerson.country.isEmpty
+                                          additionalPeopleList[i]
+                                                  .country
+                                                  .isEmpty
                                               ? 'Brak wybranego kraju'
                                               : additionalPerson.country,
                                           style: const TextStyle(fontSize: 16),
@@ -529,7 +572,8 @@ class _FormScreenState extends State<FormScreen> {
                                               context: context,
                                               onSelect: (Country country) {
                                                 setState(() {
-                                                  additionalPerson.country =
+                                                  additionalPeopleList[i]
+                                                          .country =
                                                       country.displayName;
                                                 });
                                               },
@@ -568,7 +612,8 @@ class _FormScreenState extends State<FormScreen> {
                                     //onChanged is required by function constructor
                                     onChanged: (v) {},
                                     onSaved: (enteredValue) {
-                                      additionalPerson.gender = enteredValue!;
+                                      additionalPeopleList[i].gender =
+                                          enteredValue!;
                                     },
                                   ),
 
@@ -590,7 +635,7 @@ class _FormScreenState extends State<FormScreen> {
                                         return null;
                                       },
                                       onSaved: (enteredValue) {
-                                        additionalPerson.birthDate =
+                                        additionalPeopleList[i].birthDate =
                                             enteredValue!;
                                       }),
                                 ],
